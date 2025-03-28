@@ -12,15 +12,19 @@ public class Main {
             long startTime = System.nanoTime();
             switch (task) {
                 case 1 -> task1();
+                case 2 -> task2();
                 default -> System.out.println("Invalid task number.");
             }
             long endTime = System.nanoTime();
 
             System.out.println("Execution Time: " + (endTime - startTime) / 1_000_000.0 + " ms");
+            // it converts nanoseconds to milliseconds
+            // it calculates execution time
         }
     }
 
     private static void task1() {
+        //it finds a minimum in the array
         System.out.print("Enter the number of elements in the array: ");
         int n = sc.nextInt();
 
@@ -45,4 +49,31 @@ public class Main {
         System.out.println("The minimum element is " + min);
         System.out.println("Time Complexity: O(n)");
     }
+    private static void task2() {
+        //it finds an average in the array
+        System.out.print("Enter the number of elements in the array: ");
+        int n = sc.nextInt();
+
+        if (n == 0) {
+            System.out.println("The array is empty");
+            return;
+        }
+
+        int[] arr = new int[n];
+        System.out.println("Enter the elements in the array: ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // Calculate sum using loop
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+        }
+
+        double average = (double) sum / n;
+        System.out.println("The average is " + average);
+        System.out.println("Time Complexity: O(n)");
+    }
+
 }
