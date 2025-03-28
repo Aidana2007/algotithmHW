@@ -14,6 +14,7 @@ public class Main {
                 case 1 -> task1();
                 case 2 -> task2();
                 case 3 -> task3();
+                case 4 -> task4();
                 default -> System.out.println("Invalid task number.");
             }
             long endTime = System.nanoTime();
@@ -97,6 +98,17 @@ public class Main {
 
         System.out.println(n + " is " + (isPrime ? "Prime" : "Composite"));
         System.out.println("Time Complexity: O(sqrt(n))");
+    }
+    private static void task4() {
+        //uses recursion to find factorial of a number
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        System.out.println("Factorial: " + factorial(n));
+        System.out.println("Time Complexity: O(n)");
+    }
+
+    private static int factorial(int n) {
+        return (n <= 1) ? 1 : n * factorial(n - 1);
     }
 
 }
