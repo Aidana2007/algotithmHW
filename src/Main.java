@@ -13,6 +13,7 @@ public class Main {
             switch (task) {
                 case 1 -> task1();
                 case 2 -> task2();
+                case 3 -> task3();
                 default -> System.out.println("Invalid task number.");
             }
             long endTime = System.nanoTime();
@@ -74,6 +75,28 @@ public class Main {
         double average = (double) sum / n;
         System.out.println("The average is " + average);
         System.out.println("Time Complexity: O(n)");
+    }
+
+    private static void task3() {
+        //find if a number is prime
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        if (n < 2) {
+            System.out.println(n + " is Composite");
+            return;
+        }
+
+        boolean isPrime = true; // Assume prime initially
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) {
+                isPrime = false;
+                break; // if found a factor, no need to continue
+            }
+        }
+
+        System.out.println(n + " is " + (isPrime ? "Prime" : "Composite"));
+        System.out.println("Time Complexity: O(sqrt(n))");
     }
 
 }
