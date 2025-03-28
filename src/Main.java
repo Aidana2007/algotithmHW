@@ -15,6 +15,7 @@ public class Main {
                 case 2 -> task2();
                 case 3 -> task3();
                 case 4 -> task4();
+                case 5 -> task5();
                 default -> System.out.println("Invalid task number.");
             }
             long endTime = System.nanoTime();
@@ -110,5 +111,16 @@ public class Main {
     private static int factorial(int n) {
         return (n <= 1) ? 1 : n * factorial(n - 1);
     }
+    private static void task5(){
+        //finds n-th element in Fibonacci sequence
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        System.out.println("Fibonacci: " + fibonacci(n));
+        System.out.println("Time Complexity: O(2^n)");
+    }
 
+    private static int fibonacci(int n) {
+        if (n <= 1) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
 }
