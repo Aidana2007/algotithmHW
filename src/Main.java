@@ -16,6 +16,7 @@ public class Main {
                 case 3 -> task3();
                 case 4 -> task4();
                 case 5 -> task5();
+                case 6 -> task6();
                 default -> System.out.println("Invalid task number.");
             }
             long endTime = System.nanoTime();
@@ -122,5 +123,19 @@ public class Main {
     private static int fibonacci(int n) {
         if (n <= 1) return n;
         return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+    private static void task6() {
+        //find a^n using recursion
+        System.out.print("Enter base (a) and exponent (n): ");
+        int a = sc.nextInt();
+        int n = sc.nextInt();
+
+        System.out.println("Result: " + power(a, n));
+        System.out.println("Time Complexity: O(n)");
+    }
+
+    private static int power(int a, int n) {
+        if (n == 0) return 1;      // a^0 = 1
+        return a * power(a, n - 1);
     }
 }
