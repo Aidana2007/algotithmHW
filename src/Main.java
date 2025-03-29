@@ -21,6 +21,7 @@ public class Main {
                 case 7 -> task7();
                 case 8 -> task8();
                 case 9 -> task9();
+                case 10 -> task10();
                 default -> System.out.println("Invalid task number.");
             }
             long endTime = System.nanoTime();
@@ -198,6 +199,18 @@ public class Main {
     private static int binomialCoefficient(int n, int k) {
         if (k == 0 || k == n) return 1;
         return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
+    }
+    private static void task10() {
+        //uses recursion to find GCD
+        System.out.print("Enter a and b: ");
+        int a = sc.nextInt(), b = sc.nextInt();
+        System.out.println("GCD: " + gcd(a, b));
+        System.out.println("Time Complexity: O(log min(a, b))");
+    }
+
+    private static int gcd(int a, int b) {
+        //calculates greatest common divisor
+        return b == 0 ? a : gcd(b, a % b);
     }
 }
 
