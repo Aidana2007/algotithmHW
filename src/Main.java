@@ -20,6 +20,7 @@ public class Main {
                 case 6 -> task6();
                 case 7 -> task7();
                 case 8 -> task8();
+                case 9 -> task9();
                 default -> System.out.println("Invalid task number.");
             }
             long endTime = System.nanoTime();
@@ -186,6 +187,17 @@ public class Main {
         if (c < '0' || c > '9') return false;  // Check if character is outside digit range
         return isAllDigits(s, i + 1);  // Recursive call for the next character
     }
+    private static void task9() {
+        //finds binomial coefficient
+        System.out.print("Enter n and k: ");
+        int n = sc.nextInt(), k = sc.nextInt();
+        System.out.println("C(n, k): " + binomialCoefficient(n, k));
+        System.out.println("Time Complexity: O(2^n)");
+    }
 
+    private static int binomialCoefficient(int n, int k) {
+        if (k == 0 || k == n) return 1;
+        return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
+    }
 }
 
