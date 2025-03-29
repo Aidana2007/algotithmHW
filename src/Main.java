@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -17,6 +18,7 @@ public class Main {
                 case 4 -> task4();
                 case 5 -> task5();
                 case 6 -> task6();
+                case 7 -> task7();
                 default -> System.out.println("Invalid task number.");
             }
             long endTime = System.nanoTime();
@@ -138,4 +140,31 @@ public class Main {
         if (n == 0) return 1;      // a^0 = 1
         return a * power(a, n - 1);
     }
+    static void task7() {
+        //reverses give array
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        int[] arr = readArray(n);
+
+        reverseArray(arr, 0);
+
+        System.out.println("Reversed array: " + Arrays.toString(arr));
+        System.out.println("Time Complexity: O(n)");
+    }
+
+    static void reverseArray(int[] arr, int i) {
+        if (i >= arr.length / 2) return;
+        int temp = arr[i];
+        arr[i] = arr[arr.length - 1 - i];
+        arr[arr.length - 1 - i] = temp;
+        reverseArray(arr, i + 1);  // Recursive call for the next pair
+    }
+
+    static int[] readArray(int n) {
+        int[] arr = new int[n];
+        System.out.println("Enter the elements: ");
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        return arr;
+    }
 }
+
