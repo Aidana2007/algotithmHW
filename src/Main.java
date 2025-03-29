@@ -19,6 +19,7 @@ public class Main {
                 case 5 -> task5();
                 case 6 -> task6();
                 case 7 -> task7();
+                case 8 -> task8();
                 default -> System.out.println("Invalid task number.");
             }
             long endTime = System.nanoTime();
@@ -166,5 +167,25 @@ public class Main {
         for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
         return arr;
     }
+    private static void task8() {
+        System.out.print("Enter string: ");
+        String s = sc.next();
+
+        if (isAllDigits(s, 0)) {
+            System.out.println("All digits: Yes");
+        } else {
+            System.out.println("All digits: No");
+        }
+
+        System.out.println("Time Complexity: O(n)");
+    }
+
+    private static boolean isAllDigits(String s, int i) {
+        if (i == s.length()) return true;
+        char c = s.charAt(i);
+        if (c < '0' || c > '9') return false;  // Check if character is outside digit range
+        return isAllDigits(s, i + 1);  // Recursive call for the next character
+    }
+
 }
 
